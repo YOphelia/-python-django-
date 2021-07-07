@@ -1,0 +1,205 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>删除经办人信息</title>
+    <link rel="stylesheet" href="{% static 'css/ces.css' %}">
+     <link rel="stylesheet" href="{% static 'css/boot.css' %}">
+</head>
+
+<body>
+<div class="bod">
+    	<div  class="header" >
+         <h2 class="xin">删除经办人信息</h2>
+              <div id="nav">
+
+  <ul>
+
+    <li> <div class="head" style=" z-index: 1000;float: right ;margin: 5px 60px 0 0">
+
+			<div class="dropdown">
+			    <button class="dropbtn"><img src="/static/image/4.jpg" style="height:50px;width:50px;float:left;"></button>
+			    <div class="dropdown-content">
+			        <a href="blog/index.jsp">你好：{{ username }}！</a>
+
+			        <a href="http://127.0.0.1:8000/DeleteUser/">查看所有用户</a>
+			        <a href="http://127.0.0.1:8000">注销退出</a>
+			    </div>
+			</div>
+
+   </li>
+
+   <li class="li1"><a href="#goto1" title="">自助服务</a></li>
+
+    <li class="li1"><a href="http://127.0.0.1:8000/Homepage/" title="">主页</a></li>
+
+
+  </ul>
+
+  </div>
+
+
+
+        </div>
+    	<div  class="cebian">
+            <from class="bbt" >
+               <a href="http://127.0.0.1:8000/DeleteClient/">
+                    <input type="button" value="删除顾客信息"  class="button1">
+                </a>
+
+                 <a href="http://127.0.0.1:8000/DeleteAgency/">
+                     <input type="button" value="删除经办人信息" class="button1">
+                </a>
+                <a href="http://127.0.0.1:8000/DeleteMedicine/">
+                    <input type="button" value="删除药品信息"  class="button2">
+                </a>
+            </from>
+
+
+        </div>
+<div   class="zhengwen">
+
+
+             <div class="shousuo">
+                  <form action="http://127.0.0.1:8000/Get_DeleteAgency/" method="post" class="search_form">
+
+                     <input type="text" class="input_text" placeholder="请输入经办人编号" name="wd"required="required"><!-- -->
+                        <input type="submit" value="搜索" class="input_sub">
+                 </form>
+            </div>
+            <div class="jieguo">
+             <form action="http://127.0.0.1:8000/Deleteagency/" method="post">
+ <table class="hovertable" id="blocks" style="position: relative;top: 30px;text-align: center">
+ <h2>{{ hobby }}</h2>
+                    <tr>
+                        <th>    </th><th>经办人编号</th><th>姓名  </th><th>性别  </th><th>手机号</th><th>备注</th>
+                        </tr>
+
+                       <ul>{% for agency in agencys %}
+
+                        <tr onmouseover="this.style.backgroundColor='#ffff66';" onmouseout="this.style.backgroundColor='#d4e3e5';">
+                         <td><input type="checkbox" name="ag" value="{{ agency.ano }}"> </td> <td>{{ agency.ano }}</td><td>{{ agency.aname }}</td><td>{{agency.asex}}</td><td>{{agency.aphone}}</td><td>{{agency.aremark}}</td>
+                    </tr>
+                        {% endfor %}
+                        </ul>
+
+                </table>
+
+
+                <h3>{{ hobby }}</h3>
+                <button  type="submit" style="width: 150px;font-size: 25px;position: relative;left: 5px">删除</button>
+
+{#                 <input type="button" value="删除" style="position: relative;width: 100px;top: 25px;left:115px">#}
+                        </form>
+
+                 <div id="pagiDiv" style="width:400px; position:relative;left: 650px">
+                <span id="spanFirst">首页</span>
+                <span id="spanPre">上一页</span>
+                <span id="spanNext">下一页</span>
+                <span id="spanLast">尾页</span>
+                第 <span id="spanPageNum"></span> 页/共<span id="spanTotalPage"></span> 页
+                    </div>
+
+
+            </div>
+        </div>
+    	<div   class="boot">
+
+
+        </div>
+    </div>
+<button onclick="topFunction()" id="movetop" title="Go to top">
+	<span class="fa fa-eject"></span>
+</button>
+<script>
+	// When the user scrolls down 20px from the top of the document, show the button
+	window.onscroll = function () {
+		scrollFunction()
+	};
+
+	function scrollFunction() {
+		if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+			document.getElementById("movetop").style.display = "block";
+		} else {
+			document.getElementById("movetop").style.display = "none";
+		}
+	}
+
+	// When the user clicks on the button, scroll to the top of the document
+	function topFunction() {
+		document.body.scrollTop = 0;
+		document.documentElement.scrollTop = 0;
+	}
+</script>
+<!-- /move top -->
+</body>
+</html>
+<script>
+	// When the user scrolls down 20px from the top of the document, show the button
+	window.onscroll = function () {
+		scrollFunction()
+	};
+
+	function scrollFunction() {
+		if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+			document.getElementById("movetop").style.display = "block";
+		} else {
+			document.getElementById("movetop").style.display = "none";
+		}
+	}
+
+	// When the user clicks on the button, scroll to the top of the document
+	function topFunction() {
+		document.body.scrollTop = 0;
+		document.documentElement.scrollTop = 0;
+	}
+</script>
+<!-- /move top -->
+</body>
+</html>
+
+  <script type="text/javascript" src="../static/js/pagination.js"></script>
+
+    <script type="text/javascript">
+        //全局变量
+        var numCount;       //数据总数量
+        var columnsCounts;  //数据列数量
+        var pageCount;      //每页显示的数量
+        var pageNum;        //总页数
+        var currPageNum ;   //当前页数
+
+        //页面标签变量
+        var blockTable;
+        var preSpan;
+        var firstSpan;
+        var nextSpan;
+        var lastSpan;
+        var pageNumSpan;
+        var currPageSpan;
+
+
+
+        window.onload=function(){
+            //页面标签变量
+            blockTable = document.getElementById("blocks");
+            preSpan = document.getElementById("spanPre");
+            firstSpan = document.getElementById("spanFirst");
+            nextSpan = document.getElementById("spanNext");
+            lastSpan = document.getElementById("spanLast");
+            pageNumSpan = document.getElementById("spanTotalPage");
+            currPageSpan = document.getElementById("spanPageNum");
+
+            numCount = document.getElementById("blocks").rows.length - 1;       //取table的行数作为数据总数量（减去标题行1）
+            {#alert(numCount)#}
+            columnsCounts = blockTable.rows[0].cells.length;
+            pageCount = 8;
+            pageNum = parseInt(numCount/pageCount);
+            if(0 != numCount%pageCount){
+                pageNum += 1;
+            }
+
+            firstPage();
+        };
+    </script>
+

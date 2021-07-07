@@ -1,0 +1,304 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>修改顾客信息</title>
+    <link rel="stylesheet" href="{% static 'css/ces.css' %}">
+     <link rel="stylesheet" href="{% static 'css/style-starter.css' %}">
+</head>
+
+<body>
+<div class="bod">
+    	<div  class="header" >
+         <h2 class="xin">修改顾客信息</h2>
+              <div id="nav">
+
+  <ul>
+
+    <li> <div class="head" style=" z-index: 1000;float: right ;margin: 5px 60px 0 0">
+
+			<div class="dropdown">
+			    <button class="dropbtn"><img src="/static/image/6.jpg" style="height:50px;width:50px;float:left;"></button>
+			    <div class="dropdown-content">
+			        <a href="blog/index.jsp">你好：{{ username }}！</a>
+			        <a href="http://127.0.0.1:8000">注销退出</a>
+			    </div>
+			</div>
+
+   </li>
+
+   <li class="li1"><a href="#goto1" title="">自助服务</a></li>
+
+    <li class="li1"><a href="http://127.0.0.1:8000/AgencyHomepage/" title="">主页</a></li>
+
+
+  </ul>
+
+  </div>
+
+
+
+        </div>
+
+<div   class="zhengwen" style="width: 100%">
+
+
+             <div class="shousuo">
+                  <form action="http://127.0.0.1:8000/Get_PolishClient1/" method="post" class="search_form">
+
+                     <input type="text" class="input_text" placeholder="请输入顾客编号" name="wd"required="required"style="left:200px;position: relative;"><!-- -->
+                        <input type="submit" value="搜索" class="input_sub"style="left:200px;position: relative;">
+                 </form>
+            </div>
+            <div class="jieguo">
+             <form action="http://127.0.0.1:8000/Polishclient1/" method="post">
+ <table class="hovertable" id="blocks" style="position: relative;top: 30px;text-align: center">
+
+                     <tr>
+                        <th>顾客编号</th><th>姓名  </th><th>性别  <th>地址</th></th><th>手机号</th><th>年龄</th><th>症状</th><th>药品编号</th><th>经办人编号</th><th>日期</th><th>备注</th>
+                        <th>药品数量</th></tr>
+                        <ul>{% for clinet in clinets %}
+
+                        <tr onmouseover="this.style.backgroundColor='#ffff66';" onmouseout="this.style.backgroundColor='#d4e3e5';">
+                        <td>{{ clinet.cno }}</td><td>{{ clinet.cname }}</td><td>{{clinet.csex}}</td><td>{{clinet.caddress}}</td><td>{{clinet.cphone}}</td><td>{{clinet.cage}}</td>
+                        <td>{{clinet.csymptom}}</td><td>{{clinet.mno}}</td><td>{{clinet.ano}}</td><td>{{clinet.cdate}}</td><td>{{clinet.cremark}}</td><td>{{ clinet.cmcount }}</td>
+                    </tr>
+                        {% endfor %}
+                        </ul>
+
+               <ul>
+
+                          <tr>
+                              <td>  <div id="test1" >
+                    <input type="button" onclick="createInput1()" value="修改"  />
+                            </div></td>
+
+                              <td>
+                                  <div id="test2">
+                    <input type="button" onclick="createInput2()" value="修改"  />
+                            </div>
+
+                              </td>
+
+                              <td>  <div id="test3">
+                    <input type="button" onclick="createInput3()" value="修改"  />
+                            </div></td>
+                              <td>  <div id="test4">
+                    <input type="button" onclick="createInput4()" value="修改"  />
+                            </div>
+                              </td>
+                    <td>  <div id="test5" >
+                    <input type="button" onclick="createInput5()" value="修改"  />
+                            </div></td>
+
+                              <td>
+                                  <div id="test6">
+                    <input type="button" onclick="createInput6()" value="修改"  />
+                            </div>
+
+                              </td>
+
+                              <td>  <div id="test7">
+                    <input type="button" onclick="createInput7()" value="修改"  />
+                            </div></td>
+                              <td>  <div id="test8">
+                    <input type="button" onclick="createInput8()" value="修改"  />
+                            </div>
+                              </td>
+                        <td>  <div id="test9" >
+                    <input type="button" onclick="createInput9()" value="修改"  />
+                            </div></td>
+
+                              <td>
+                                  <div id="test10">
+                    <input type="button" onclick="createInput10()" value="修改"  />
+                            </div>
+
+                              </td>
+
+                              <td>  <div id="test11">
+                    <input type="button" onclick="createInput11()" value="修改"  />
+                            </div></td>
+                    <td>  <div id="test12">
+                    <input type="button" onclick="createInput12()" value="修改"  />
+                            </div></td>
+
+
+                          </tr>
+
+                      </ul>
+                </table>
+                <button class="but" type="submit" style="width: 150px;font-size: 25px;position: relative;top: 250px;left: 20px">修改</button>
+                        </form>
+            <h2>{{ hobby }}</h2>
+
+
+            </div>
+        </div>
+    	<div   class="boot">
+
+
+          <section class="w3l-call-to-action_9">
+    <div class="call-w3 editContent" id="goto1">
+        <div class="container">
+            <div class="grids">
+                    <div class="grids-content row">
+                        <div class="column col-lg-4 col-md-6 col-sm-6 color-2 editContent">
+                            <div class="bg-color-white">
+                                <div class="span-color editContent">
+                        <span class="fa fa-thumbs-o-up" aria-hidden="true"></span>
+                    </div>
+                            <h4><a href="http://127.0.0.1:8000/DeleteClient1/" class=" editContent">查看顾客信息</a></h4>
+                            <p class="para editContent">Assumenda temporibus quidem ipsam. Voluptate fuga corporis iusto similique voluptates sint quibusdam.</p>
+
+                        </div>
+                    </div>
+                    <div class="column col-lg-4 col-md-6 col-sm-6 color-2 editContent">
+                        <div class="bg-color-white">
+                            <div class="span-color editContent">
+                            <span class="fa fa-smile-o" aria-hidden="true"></span>
+                        </div>
+                        <h4><a href="http://127.0.0.1:8000/SetClient1/" class=" editContent">顾客信息录入</a></h4>
+                            <p class="para editContent">Assumenda temporibus quidem ipsam. Voluptate fuga corporis iusto similique voluptates sint quibusdam.</p>
+
+                    </div>
+                </div>
+
+                <div class="column col-lg-4 col-md-6 col-sm-6 color-2 editContent">
+                    <div class="bg-color-white">
+                        <div class="span-color editContent">
+                        <span class="fa fa-laptop" aria-hidden="true"></span>
+                        </div>
+                    <h4><a href="http://127.0.0.1:8000/PolishClient1/" class=" editContent">顾客信息修改</a></h4>
+                    <p class="para editContent">Assumenda temporibus quidem ipsam. Voluptate fuga corporis iusto similique voluptates sint quibusdam.</p>
+
+                </div>
+            </div>
+            <div class="column col-lg-4 col-md-6 col-sm-6 color-2 editContent">
+                <div class="bg-color-white">
+                    <div class="span-color editContent">
+            <span class="fa fa-diamond" aria-hidden="true"></span>
+        </div>
+                <h4><a href="http://127.0.0.1:8000/DeleteMedicine1/" class=" editContent">查看药品信息</a></h4>
+                <p class="para editContent">Assumenda temporibus quidem ipsam. Voluptate fuga corporis iusto similique voluptates sint quibusdam.</p>
+
+            </div>
+        </div>
+            <div class="column col-lg-4 col-md-6 col-sm-6 color-2 editContent">
+            <div class="bg-color-white">
+                <div class="span-color editContent">
+        <span class="fa fa-magic" aria-hidden="true"></span>
+    </div>
+             <h4><a href="http://127.0.0.1:8000/SetMedicine1/" class=" editContent"> 药品信息录入</a></h4>
+            <p class="para editContent">Assumenda temporibus quidem ipsam. Voluptate fuga corporis iusto similique voluptates sint quibusdam.</p>
+
+        </div>
+    </div>                       <div class="column col-lg-4 col-md-6 col-sm-6 color-2 editContent">
+        <div class="bg-color-white">
+            <div class="span-color editContent">
+    <span class="fa fa-check" aria-hidden="true"></span>
+</div>
+        <h4><a href="http://127.0.0.1:8000/PolishMedicine1/" class=" editContent">药品信息修改</a></h4>
+        <p class="para editContent">Assumenda temporibus quidem ipsam. Voluptate fuga corporis iusto similique voluptates sint quibusdam.</p>
+
+    </div>
+</div>
+                    </div>
+                </div>
+        </div>
+    </div>
+</section>
+        </div>
+    </div>
+<button onclick="topFunction()" id="movetop" title="Go to top">
+	<span class="fa fa-eject"></span>
+</button>
+<script>
+	// When the user scrolls down 20px from the top of the document, show the button
+	window.onscroll = function () {
+		scrollFunction()
+	};
+
+	function scrollFunction() {
+		if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+			document.getElementById("movetop").style.display = "block";
+		} else {
+			document.getElementById("movetop").style.display = "none";
+		}
+	}
+
+	// When the user clicks on the button, scroll to the top of the document
+	function topFunction() {
+		document.body.scrollTop = 0;
+		document.documentElement.scrollTop = 0;
+	}
+</script>
+<!-- /move top -->
+</body>
+</html>
+<script>
+
+function createInput1()
+{
+document.getElementById("test1").innerHTML = "<input type='text'name='p_cno'required='required' style='width: 30px'/>" ;
+
+}
+function createInput2()
+{
+document.getElementById("test2").innerHTML = "<input type='text'name='p_cname'required='required' style='width: 50px'/>" ;
+
+}
+function createInput3()
+{
+document.getElementById("test3").innerHTML = "<input type='text'name='p_csex'required='required' style='width: 30px'/>" ;
+
+}
+function createInput4()
+{
+document.getElementById("test4").innerHTML = "<input type='text'name='p_cage'required='required'style='width: 80px'/>" ;
+
+}
+function createInput5()
+{
+document.getElementById("test5").innerHTML = "<input type='text'name='p_caddress'required='required' style='width: 80px'/>" ;
+
+}
+function createInput6()
+{
+document.getElementById("test6").innerHTML = "<input type='text'name='p_cphone'required='required' style='width: 30px'/>" ;
+
+}
+function createInput7()
+{
+document.getElementById("test7").innerHTML = "<input type='text'name='p_csymptom'required='required' style='width: 80px'/>" ;
+
+}
+function createInput8()
+{
+document.getElementById("test8").innerHTML = "<input type='text'name='p_mno'required='required'style='width: 30px'/>" ;
+
+}
+function createInput9()
+{
+document.getElementById("test9").innerHTML = "<input type='text'name='p_ano'required='required' style='width: 30px'/>" ;
+
+}
+function createInput10()
+{
+document.getElementById("test10").innerHTML = "<input type='text'name='p_cdate'required='required' style='width: 100px'/>" ;
+
+}
+function createInput11()
+{
+document.getElementById("test11").innerHTML = "<input type='text'name='p_cremark'required='required' style='width:30px'/>" ;
+
+}
+function createInput12()
+{
+document.getElementById("test12").innerHTML = "<input type='text'name='p_cmcount'required='required' style='width:30px'/>" ;
+
+}
+</script>
+

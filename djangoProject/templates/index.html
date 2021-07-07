@@ -1,0 +1,299 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+      <style>
+          .dropdown{
+            position: relative;;
+            display: inline-block;
+            float:left;
+        }
+        .dropdown-content{
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow:  0px 8px 16px 0px rgba(0,0,0,0.2);
+        }
+        .dropdown-content a{
+            color: #000000;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+        .dropdown-content a:hover{background-color: #f1f1f1}
+        .dropdown:hover .dropdown-content{
+            display: block;
+        }
+        .dropdown:hover .dropbtn{
+            background-color: #3e8e41;
+        }
+      </style>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Home</title>
+
+    <!-- Template CSS -->
+    <link rel="stylesheet" href="{% static 'css/style-starter.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Slab:400,700,700i&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+  </head>
+  <body id="home">
+
+<section class=" w3l-header-4 header-sticky">
+    <header class="absolute-top">
+        <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <h1><a class="navbar-brand" href="index.html"><span class="fa fa-paw mr-2" aria-hidden="true"></span> 
+            医药信息管理系统
+            </a></h1>
+            <button class="navbar-toggler bg-gradient collapsed" type="button" data-toggle="collapse"
+                data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="fa icon-expand fa-bars"></span>
+				<span class="fa icon-close fa-times"></span>
+            </button>
+      
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://127.0.0.1:8000/Homepage/">主页 <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">帮助</a>
+                    </li> 
+                    <li class="nav-item">
+                        <a class="nav-link" href="#goto1">自助服务</a>
+                    </li> 
+                    <li class="nav-item">
+{#                        <a class="nav-link" href="#goto">用户{{ username}}</a>#}
+                        <div class="container">
+		<!-- 头部 -->
+		<div class="head" style=" z-index: 1000; ">
+
+			<div class="dropdown">
+			    <button class="dropbtn"><img src="/static/image/4.jpg" style="height:50px;width:50px;float:left;"></button>
+			    <div class="dropdown-content">
+			        <a href="#">你好：{{ username }}！</a>
+
+			        <a href="http://127.0.0.1:8000/DeleteUser/">查看所有用户</a>
+			        <a href="http://127.0.0.1:8000">注销退出</a>
+			    </div>
+			</div>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+
+        </nav>
+    </div>
+      </header>
+</section>
+
+<script src="../static/js/jquery-3.3.1.min.js"></script> <!-- Common jquery plugin -->
+<!--bootstrap working-->
+<script src="../static/js/bootstrap.min.js"></script>
+<!-- //bootstrap working-->
+<!-- disable body scroll which navbar is in active -->
+<script>
+$(function () {
+  $('.navbar-toggler').click(function () {
+    $('body').toggleClass('noscroll');
+  })
+});
+</script>
+<!-- disable body scroll which navbar is in active -->
+
+<section class="w3l-hero-headers-9">
+  <div class="slide header11" data-selector="header11">
+    <div class="container">
+        <div class="banner-text ">
+          <h5 class=" ">欢迎使用医药信息管理系统
+            <br><strong>管理员端</strong></h5>
+          <p class=" ">“一切为了病人，为了一切病人，为了病人一切”<br>有问题可以联系我们</p>
+          <a href="/help.html/" class="btn logo-button top-margin">帮助</a>
+        </div>
+      </div>
+      
+</div>
+  </section>
+
+<section class="w3l-teams-15">
+	<div class="team-single-main editContent">
+		<div class="container">
+			<div class="row">
+				<div class="column2 col-lg-6">
+					<img src="../static/image/5.jpg" alt="product" class="img-responsive ">
+				</div>
+				<div class="column2 image-text col-lg-6">
+					<h3 class="team-head editContent" id="goto">当前身份是<span class="color-text editContent">系统管理员</span></h3>
+					<p class="para editContent text ">
+						管理员拥有最高的使用权限 <br>
+                        其中括对顾客、经办人信息的增删查改等操作
+                    </p>
+{#					<div class="pet-animals">#}
+{#						<div class="pet-grid one-img">#}
+{#							<h6><a href="#page">采购人</a></h6>#}
+{#							<p class="para">#}
+{#							Necessi tatibus, inve ntore ad digni ssimos icabo volup tatum.#}
+{#							</p>#}
+{#					</div>#}
+{#						<div class="pet-grid two-img">#}
+{#							<h6><a href="#page">经办人</a></h6>#}
+{#							<p class="para">#}
+{#							Necessi tatibus, inve ntore ad digni ssimos icabo volup tatum.#}
+{#							</p>#}
+{#					</div>#}
+{#					</div>#}
+				</div>
+			</div>
+			</div>
+		</div>
+	</div>
+</section>
+ <section class="w3l-call-to-action_9">
+    <div class="call-w3 editContent" id="goto1">
+        <div class="container">
+            <div class="grids">
+                    <div class="grids-content row">
+                        <div class="column col-lg-4 col-md-6 col-sm-6 color-2 editContent">
+                            <div class="bg-color-white">
+                                <div class="span-color editContent">
+                        <span class="fa fa-thumbs-o-up" aria-hidden="true"></span>
+                    </div>
+                            <h4><a href="http://127.0.0.1:8000/SearchAgency/" class=" editContent">查询功能</a></h4>
+                            <p class="para editContent">Assumenda temporibus quidem ipsam. Voluptate fuga corporis iusto similique voluptates sint quibusdam.</p>
+
+                        </div>
+                    </div>
+                    <div class="column col-lg-4 col-md-6 col-sm-6 color-2 editContent">
+                        <div class="bg-color-white">
+                            <div class="span-color editContent">
+                            <span class="fa fa-smile-o" aria-hidden="true"></span>
+                        </div>
+                        <h4><a href="http://127.0.0.1:8000/SetAgency/" class=" editContent">信息录入</a></h4>
+                        <p class="para editContent">Assumenda temporibus quidem ipsam. Voluptate fuga corporis iusto similique voluptates sint quibusdam.</p>
+
+                    </div>
+                </div>
+
+                <div class="column col-lg-4 col-md-6 col-sm-6 color-2 editContent">
+                    <div class="bg-color-white">
+                        <div class="span-color editContent">
+                        <span class="fa fa-laptop" aria-hidden="true"></span>
+                        </div>
+                    <h4><a href="http://127.0.0.1:8000/DeleteAgency/" class=" editContent">信息删除</a></h4>
+                    <p class="para editContent">Assumenda temporibus quidem ipsam. Voluptate fuga corporis iusto similique voluptates sint quibusdam.</p>
+
+                </div>
+            </div>
+            <div class="column col-lg-4 col-md-6 col-sm-6 color-2 editContent">
+                <div class="bg-color-white">
+                    <div class="span-color editContent">
+            <span class="fa fa-diamond" aria-hidden="true"></span>
+        </div>
+                <h4><a href="http://127.0.0.1:8000/PolishAgency/" class=" editContent">信息修改</a></h4>
+                <p class="para editContent">Assumenda temporibus quidem ipsam. Voluptate fuga corporis iusto similique voluptates sint quibusdam.</p>
+
+            </div>
+        </div>
+            <div class="column col-lg-4 col-md-6 col-sm-6 color-2 editContent">
+            <div class="bg-color-white">
+                <div class="span-color editContent">
+        <span class="fa fa-magic" aria-hidden="true"></span>
+    </div>
+             <h4><a href="http://127.0.0.1:8000/ToClinet/" class=" editContent"> 信息浏览</a></h4>
+            <p class="para editContent">Assumenda temporibus quidem ipsam. Voluptate fuga corporis iusto similique voluptates sint quibusdam.</p>
+
+        </div>
+    </div>                       <div class="column col-lg-4 col-md-6 col-sm-6 color-2 editContent">
+        <div class="bg-color-white">
+            <div class="span-color editContent">
+    <span class="fa fa-check" aria-hidden="true"></span>
+</div>
+        <h4><a href="http://127.0.0.1:8000/AgencyPrint/" class=" editContent">数据报表</a></h4>
+        <p class="para editContent">Assumenda temporibus quidem ipsam. Voluptate fuga corporis iusto similique voluptates sint quibusdam.</p>
+
+    </div>
+</div>
+                    </div>
+                </div>
+        </div>
+    </div>
+</section>
+
+<section class="w3l-footer-29-main">
+	<div class="footer-29 py-5">
+	  <div class="container py-lg-4">
+		<div class="row footer-top-29">
+		  <div class="col-lg-5 col-md-6 col-sm-12 footer-list-29 footer-1">
+				<h2><a href="index.html" class=""><span class="fa fa-paw mr-2" aria-hidden="true"></span>Medicine System</a></h2>
+				<p>Adipisicing elit. Lauda ntium, archi tecto iure Lorem incidunt iosam qui quo moll itia veniam recus andae archi tecto earum suscipit exce pturi dicta nemo quam.</p>
+  </div>
+		  <div class="col-lg-3 col-md-6 col-sm-5 footer-list-29 footer-3">
+			  <h6 class="footer-title-29">Get in Touch</h6>
+		
+			  <div class="column2">
+								<div class="href1"><span>E-mail:</span><a href="mailto:mail@company.com">mail@company.com</a>
+								</div>
+								<div class="href2"><span>Phone:</span><a href="tel:+(12)-00 222 00008">11111111111</a>
+								</div>
+								<div>
+									<p class="contact-para">China Guangdong zhaoqing</p>
+								</div>
+							</div>
+		  </div>
+		  <div class="col-lg-4 col-md-6 col-sm-7 footer-list-29 footer-4">
+			<h6 class="footer-title-29">Newsletter </h6>
+			<p>Enter your email and receive the latest news from us.
+			 We'll never share your email address</p>
+  
+			<form action="#" class="subscribe" method="post">
+			  <input type="email" name="email" placeholder="Your Email Address" required="">
+			  <button><span class="fa fa-envelope-o"></span></button>
+			</form>
+		  </div>
+		</div>
+
+	  </div>
+	</div>
+	<div class="bottom-copies text-center">
+		<div class="container">
+		<p class="copy-footer-29">Copyright &copy; 2020.Sword.  </p>
+	</div>
+	</div>
+  </section>
+
+
+<!-- move top -->
+<button onclick="topFunction()" id="movetop" title="Go to top">
+	<span class="fa fa-eject"></span>
+</button>
+<script>
+	// When the user scrolls down 20px from the top of the document, show the button
+	window.onscroll = function () {
+		scrollFunction()
+	};
+
+	function scrollFunction() {
+		if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+			document.getElementById("movetop").style.display = "block";
+		} else {
+			document.getElementById("movetop").style.display = "none";
+		}
+	}
+
+	// When the user clicks on the button, scroll to the top of the document
+	function topFunction() {
+		document.body.scrollTop = 0;
+		document.documentElement.scrollTop = 0;
+	}
+</script>
+<!-- /move top -->
+</body>
+
+</html>

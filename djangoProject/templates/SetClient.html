@@ -1,0 +1,200 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>顾客信息录入</title>
+    <link rel="stylesheet" href="{% static 'css/ces.css' %}">
+     <link rel="stylesheet" href="{% static 'css/style-starter.css' %}">
+</head>
+
+<body>
+<div class="bod">
+    	<div  class="header" >
+         <h2 class="xin">信息录入</h2>
+              <div id="nav">
+
+  <ul>
+
+    <li> <div class="head" style=" z-index: 1000;float: right ;margin: 5px 60px 0 0">
+
+			<div class="dropdown" style="z-index: 1000">
+			    <button class="dropbtn"><img src="/static/image/4.jpg" style="height:50px;width:50px;float:left;"></button>
+			    <div class="dropdown-content">
+			        <a href="#">你好：{{ username }}！</a>
+
+			       <a href="http://127.0.0.1:8000/DeleteUser/">查看所有用户</a>
+			        <a href="http://127.0.0.1:8000">注销退出</a>
+			    </div>
+			</div>
+
+   </li>
+
+ <li class="li1"><a href="#goto1" title="">自助服务</a></li>
+
+    <li class="li1"><a href="http://127.0.0.1:8000/Homepage/" title="">主页</a></li>
+
+  </ul>
+
+  </div>
+
+
+
+        </div>
+    	<div  class="cebian">
+            <from class="bbt" >
+                <a href="http://127.0.0.1:8000/SetClient/">
+                    <input type="button" value="顾客信息录入"  class="button1">
+                </a>
+
+                 <a href="http://127.0.0.1:8000/SetAgency/">
+                     <input type="button" value="经办人信息录入" class="button1">
+                </a>
+                <a href="http://127.0.0.1:8000/SetMedicine/">
+                     <input type="button" value="药品信息录入"  class="button2">
+                </a>
+            </from>
+
+
+        </div>
+    	<div   class="zhengwen">
+
+ <form action="/Setclient/" method="post">
+
+      <table class="hovertable" id="blocks" style="position: relative;top: 65px;">
+                         <h2 style="top:70px;font-size: 50px;right:400px;position: absolute">请输入顾客信息</h2>
+                   <tr>
+                        <th>顾客编号</th><th>姓名  </th><th>性别  <th>地址</th></th>
+                        </tr>
+
+
+
+                        <tr onmouseover="this.style.backgroundColor='#ffff66';" onmouseout="this.style.backgroundColor='#d4e3e5';">
+
+                            <td><input type="text" name="cno" required="required"></td><td><input type="text"name="cname" required="required"></td>
+                            <td><select id="sex" name="csex" >
+                <option>男</option>
+                <option>女</option>
+            </select></td><td><input type="text"name="caddress" required="required"></td>
+                            </tr>
+                             <tr><th>手机号</th><th>年龄</th><th>症状</th><th>购买数量</th></tr>
+                            <td><input type="text"name="cphone" required="required"></td>
+                            <td><input type="text"name="cage" required="required"></td>
+                            <td><input type="text"name="csymptom" required="required"></td>
+                            <td><input type="text"name="cmcount" required="required"></td>
+                            <tr><th>药品编号</th><th>经办人编号</th><th>日期</th><th>备注</th></tr>
+                            <td><input type="text"name="mno" required="required"></td>
+                            <td><input type="text"name="ano" required="required"></td>
+                            <td><input type="text"name="cdate" required="required"></td>
+                            <td><input type="text"name="cremark" required="required"></td>
+          </table>
+     <button class="but" type="submit" style="width: 250px;height:80px;font-size: 25px;position: relative;top: 150px;left: 400px ;background: #0c5460;color: white">添加</button>
+
+                        </form>
+                <h2 style="position: absolute;left: 755px;top: 460px;">{{ hobby }}</h2>
+
+
+
+
+        </div>
+    	<div   class="boot">
+
+            <section class="w3l-call-to-action_9">
+    <div class="call-w3 editContent" id="goto1">
+        <div class="container">
+            <div class="grids">
+                    <div class="grids-content row">
+                        <div class="column col-lg-4 col-md-6 col-sm-6 color-2 editContent">
+                            <div class="bg-color-white">
+                                <div class="span-color editContent">
+                        <span class="fa fa-thumbs-o-up" aria-hidden="true"></span>
+                    </div>
+                            <h4><a href="http://127.0.0.1:8000/SearchAgency/" class=" editContent">查询功能</a></h4>
+                            <p class="para editContent">Assumenda temporibus quidem ipsam. Voluptate fuga corporis iusto similique voluptates sint quibusdam.</p>
+
+                        </div>
+                    </div>
+                    <div class="column col-lg-4 col-md-6 col-sm-6 color-2 editContent">
+                        <div class="bg-color-white">
+                            <div class="span-color editContent">
+                            <span class="fa fa-smile-o" aria-hidden="true"></span>
+                        </div>
+                        <h4><a href="http://127.0.0.1:8000/SetAgency/" class=" editContent">信息录入</a></h4>
+                        <p class="para editContent">Assumenda temporibus quidem ipsam. Voluptate fuga corporis iusto similique voluptates sint quibusdam.</p>
+
+                    </div>
+                </div>
+
+                <div class="column col-lg-4 col-md-6 col-sm-6 color-2 editContent">
+                    <div class="bg-color-white">
+                        <div class="span-color editContent">
+                        <span class="fa fa-laptop" aria-hidden="true"></span>
+                        </div>
+                    <h4><a href="http://127.0.0.1:8000/DeleteAgency/" class=" editContent">信息删除</a></h4>
+                    <p class="para editContent">Assumenda temporibus quidem ipsam. Voluptate fuga corporis iusto similique voluptates sint quibusdam.</p>
+
+                </div>
+            </div>
+            <div class="column col-lg-4 col-md-6 col-sm-6 color-2 editContent">
+                <div class="bg-color-white">
+                    <div class="span-color editContent">
+            <span class="fa fa-diamond" aria-hidden="true"></span>
+        </div>
+                <h4><a href="http://127.0.0.1:8000/PolishAgency/" class=" editContent">信息修改</a></h4>
+                <p class="para editContent">Assumenda temporibus quidem ipsam. Voluptate fuga corporis iusto similique voluptates sint quibusdam.</p>
+
+            </div>
+        </div>
+            <div class="column col-lg-4 col-md-6 col-sm-6 color-2 editContent">
+            <div class="bg-color-white">
+                <div class="span-color editContent">
+        <span class="fa fa-magic" aria-hidden="true"></span>
+    </div>
+             <h4><a href="http://127.0.0.1:8000/ToClinet/" class=" editContent"> 信息浏览</a></h4>
+            <p class="para editContent">Assumenda temporibus quidem ipsam. Voluptate fuga corporis iusto similique voluptates sint quibusdam.</p>
+
+        </div>
+    </div>                       <div class="column col-lg-4 col-md-6 col-sm-6 color-2 editContent">
+        <div class="bg-color-white">
+            <div class="span-color editContent">
+    <span class="fa fa-check" aria-hidden="true"></span>
+</div>
+        <h4><a href="http://127.0.0.1:8000/AgencyPrint/" class=" editContent">数据报表</a></h4>
+        <p class="para editContent">Assumenda temporibus quidem ipsam. Voluptate fuga corporis iusto similique voluptates sint quibusdam.</p>
+
+    </div>
+</div>
+                    </div>
+                </div>
+        </div>
+    </div>
+</section>
+        </div>
+    </div>
+<button onclick="topFunction()" id="movetop" title="Go to top">
+	<span class="fa fa-eject"></span>
+</button>
+<script>
+	// When the user scrolls down 20px from the top of the document, show the button
+	window.onscroll = function () {
+		scrollFunction()
+	};
+
+	function scrollFunction() {
+		if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+			document.getElementById("movetop").style.display = "block";
+		} else {
+			document.getElementById("movetop").style.display = "none";
+		}
+	}
+
+	// When the user clicks on the button, scroll to the top of the document
+	function topFunction() {
+		document.body.scrollTop = 0;
+		document.documentElement.scrollTop = 0;
+	}
+</script>
+<!-- /move top -->
+</body>
+</html>

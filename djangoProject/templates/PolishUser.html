@@ -1,0 +1,215 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>修改用户信息</title>
+    <link rel="stylesheet" href="{% static 'css/ces.css' %}">
+     <link rel="stylesheet" href="{% static 'css/style-starter.css' %}">
+</head>
+
+<body>
+<div class="bod">
+    	<div  class="header" >
+         <h2 class="xin">修改用户信息</h2>
+              <div id="nav">
+
+  <ul>
+
+    <li> <div class="head" style=" z-index: 1000;float: right ;margin: 5px 60px 0 0">
+
+			<div class="dropdown"style=" z-index: 1000;">
+			    <button class="dropbtn"><img src="/static/image/4.jpg" style="height:50px;width:50px;float:left;"></button>
+			    <div class="dropdown-content">
+			        <a href="blog/index.jsp">你好：{{ username }}！</a>
+
+			        <a href="http://127.0.0.1:8000/DeleteUser/">查看所有用户</a>
+			        <a href="http://127.0.0.1:8000/">注销退出</a>
+			    </div>
+			</div>
+
+   </li>
+
+
+
+    <li class="li1"><a href="http://127.0.0.1:8000/Homepage/" title="">主页</a></li>
+
+
+  </ul>
+
+  </div>
+
+
+
+        </div>
+    	<div  class="cebian">
+            <from class="bbt" >
+               <a href="http://127.0.0.1:8000/DeleteUser/">
+                    <input type="button" value="查看用户信息"  class="button1">
+                </a>
+
+                 <a href="http://127.0.0.1:8000/PolishUser/">
+                     <input type="button" value="修改用户信息" class="button1">
+                </a>
+                <a href="http://127.0.0.1:8000/SetUser/">
+                     <input type="button" value="增加用户信息"  class="button2">
+                </a>
+            </from>
+
+
+        </div>
+<div   class="zhengwen">
+
+
+             <div class="shousuo">
+                  <form action="http://127.0.0.1:8000/Get_PolishUser/" method="post" class="search_form">
+
+                     <input type="text" class="input_text" placeholder="请输入用户名称" name="wd"required="required"><!-- -->
+                        <input type="submit" value="搜索" class="input_sub">
+                 </form>
+            </div>
+            <div class="jieguo">
+             <form action="http://127.0.0.1:8000/Polishuser/" method="post">
+ <table class="hovertable" id="blocks" style="position: relative;top: 30px;text-align: center">
+
+                     <tr>
+                        <th>用户名称</th><th>手机号  </th><th>密码  <th>身份</th>
+                        </tr>
+                        <ul>{% for user in users %}
+
+                        <tr onmouseover="this.style.backgroundColor='#ffff66';" onmouseout="this.style.backgroundColor='#d4e3e5';">
+                        <td>{{ user.username }}</td><td>{{ user.userphone }}</td><td>{{ user.password }}</td><td>{{ user.userid }}</td>
+                    </tr>
+                        {% endfor %}
+                        </ul>
+
+               <ul>
+
+                          <tr>
+                              <td>  <div id="test1" >
+                    <input type="button" onclick="createInput1()" value="修改"  />
+                            </div></td>
+
+                              <td>
+                                  <div id="test2">
+                    <input type="button" onclick="createInput2()" value="修改"  />
+                            </div>
+
+                              </td>
+
+                              <td>  <div id="test3">
+                    <input type="button" onclick="createInput3()" value="修改"  />
+                            </div></td>
+                              <td>  <div id="test4">
+                    <input type="button" onclick="createInput4()" value="修改"  />
+                            </div>
+                              </td>
+
+
+                          </tr>
+
+                      </ul>
+                </table>
+                <button class="but" type="submit" style="width: 150px;font-size: 25px;position: relative;top: 250px;left: 20px">修改</button>
+                        </form>
+            <h2>{{ hobby }}</h2>
+
+
+            </div>
+        </div>
+    	<div   class="boot" style="background: rgb(248,118,3) ;">
+
+
+        </div>
+    </div>
+<button onclick="topFunction()" id="movetop" title="Go to top">
+	<span class="fa fa-eject"></span>
+</button>
+<script>
+	// When the user scrolls down 20px from the top of the document, show the button
+	window.onscroll = function () {
+		scrollFunction()
+	};
+
+	function scrollFunction() {
+		if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+			document.getElementById("movetop").style.display = "block";
+		} else {
+			document.getElementById("movetop").style.display = "none";
+		}
+	}
+
+	// When the user clicks on the button, scroll to the top of the document
+	function topFunction() {
+		document.body.scrollTop = 0;
+		document.documentElement.scrollTop = 0;
+	}
+</script>
+<!-- /move top -->
+</body>
+</html>
+<script>
+
+function createInput1()
+{
+document.getElementById("test1").innerHTML = "<input type='text'name='p_username'required='required' style='width: 30px'/>" ;
+
+}
+function createInput2()
+{
+document.getElementById("test2").innerHTML = "<input type='text'name='p_phone'required='required' style='width: 50px'/>" ;
+
+}
+function createInput3()
+{
+document.getElementById("test3").innerHTML = "<input type='text'name='p_password'required='required' style='width: 30px'/>" ;
+
+}
+function createInput4()
+{
+document.getElementById("test4").innerHTML = "<input type='text'name='p_id'required='required'style='width: 80px'/>" ;
+
+}
+function createInput5()
+{
+document.getElementById("test5").innerHTML = "<input type='text'name='p_caddress'required='required' style='width: 80px'/>" ;
+
+}
+function createInput6()
+{
+document.getElementById("test6").innerHTML = "<input type='text'name='p_cphone'required='required' style='width: 30px'/>" ;
+
+}
+function createInput7()
+{
+document.getElementById("test7").innerHTML = "<input type='text'name='p_csymptom'required='required' style='width: 80px'/>" ;
+
+}
+function createInput8()
+{
+document.getElementById("test8").innerHTML = "<input type='text'name='p_mno'required='required'style='width: 30px'/>" ;
+
+}
+function createInput9()
+{
+document.getElementById("test9").innerHTML = "<input type='text'name='p_ano'required='required' style='width: 30px'/>" ;
+
+}
+function createInput10()
+{
+document.getElementById("test10").innerHTML = "<input type='text'name='p_cdate'required='required' style='width: 100px'/>" ;
+
+}
+function createInput11()
+{
+document.getElementById("test11").innerHTML = "<input type='text'name='p_cremark'required='required' style='width:30px'/>" ;
+
+}
+function createInput12()
+{
+document.getElementById("test12").innerHTML = "<input type='text'name='p_cmcount'required='required' style='width:30px'/>" ;
+
+}
+</script>
+

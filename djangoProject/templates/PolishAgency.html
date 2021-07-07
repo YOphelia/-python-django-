@@ -1,0 +1,250 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>修改经办人信息</title>
+    <link rel="stylesheet" href="{% static 'css/ces.css' %}">
+     <link rel="stylesheet" href="{% static 'css/style-starter.css' %}">
+</head>
+
+<body>
+<div class="bod">
+    	<div  class="header" >
+         <h2 class="xin">修改经办人信息</h2>
+              <div id="nav">
+
+  <ul>
+
+    <li> <div class="head" style=" z-index: 1000;float: right ;margin: 5px 60px 0 0">
+
+			<div class="dropdown">
+			    <button class="dropbtn"><img src="/static/image/4.jpg" style="height:50px;width:50px;float:left;"></button>
+			    <div class="dropdown-content">
+			        <a href="blog/index.jsp">你好：{{ username }}！</a>
+			        <a href="http://127.0.0.1:8000/DeleteUser/">查看所有用户</a>
+			        <a href="http://127.0.0.1:8000">注销退出</a>
+			    </div>
+			</div>
+
+   </li>
+
+    <li class="li1"><a href="#goto1" title="">自助服务</a></li>
+
+    <li class="li1"><a href="http://127.0.0.1:8000/Homepage/" title="">主页</a></li>
+
+
+  </ul>
+
+  </div>
+
+
+
+        </div>
+    	<div  class="cebian">
+            <from class="bbt" >
+               <a href="http://127.0.0.1:8000/PolishClient/">
+                    <input type="button" value="修改顾客信息"  class="button1">
+                </a>
+
+                 <a href="http://127.0.0.1:8000/PolishAgency/">
+                     <input type="button" value="修改经办人信息" class="button1">
+                </a>
+                <a href="http://127.0.0.1:8000/PolishMedicine/">
+                     <input type="button" value="修改药品信息"  class="button2">
+                </a>
+            </from>
+
+
+        </div>
+<div   class="zhengwen">
+
+
+             <div class="shousuo">
+                  <form action="/Get_PolishAgency/" method="post" class="search_form">
+
+                     <input type="text" class="input_text" placeholder="请输入经办人编号" name="wd"required="required"><!-- -->
+                        <input type="submit" value="搜索" class="input_sub">
+                 </form>
+            </div>
+            <div class="jieguo">
+             <form action="http://127.0.0.1:8000/Polishagency/" method="post">
+ <table class="hovertable" id="blocks" style="position: relative;top: 30px;text-align: center">
+
+                    <tr>
+                        <th>经办人编号</th><th>姓名  </th><th>性别  </th><th>手机号</th><th>备注</th>
+                        </tr>
+
+                       <ul>{% for agency in agencys %}
+
+                        <tr onmouseover="this.style.backgroundColor='#ffff66';" onmouseout="this.style.backgroundColor='#d4e3e5';">
+                        <td>{{ agency.ano }}</td><td>{{ agency.aname }}</td><td>{{agency.asex}}</td><td>{{agency.aphone}}</td><td>{{agency.aremark}}</td>
+                    </tr>
+                        {% endfor %}
+                        </ul>
+                  <ul>
+
+
+                          <tr><td>  <div id="test1" >
+                    <input type="button" onclick="createInput1()" value="修改"  />
+                            </div></td>
+
+                              <td>
+                                  <div id="test2">
+                    <input type="button" onclick="createInput2()" value="修改"  />
+                            </div>
+
+                              </td>
+
+                              <td>  <div id="test3">
+                    <input type="button" onclick="createInput3()" value="修改"  />
+                            </div></td>
+                              <td>  <div id="test4">
+                    <input type="button" onclick="createInput4()" value="修改"  />
+                            </div></td>
+                              <td>  <div id="test5">
+                    <input type="button" onclick="createInput5()" value="修改" />
+                            </div></td>
+
+                          </tr>
+
+                      </ul>
+                </table>
+                <button class="but" type="submit" style="width: 150px;font-size: 25px;position: relative;top: 250px;left: 20px">修改</button>
+                        </form>
+            <h2>{{ hobby }}</h2>
+
+
+            </div>
+        </div>
+    	<div   class="boot">
+
+           <section class="w3l-call-to-action_9">
+    <div class="call-w3 editContent" id="goto1">
+        <div class="container">
+            <div class="grids">
+                    <div class="grids-content row">
+                        <div class="column col-lg-4 col-md-6 col-sm-6 color-2 editContent">
+                            <div class="bg-color-white">
+                                <div class="span-color editContent">
+                        <span class="fa fa-thumbs-o-up" aria-hidden="true"></span>
+                    </div>
+                            <h4><a href="http://127.0.0.1:8000/SearchAgency/" class=" editContent">查询功能</a></h4>
+                            <p class="para editContent">Assumenda temporibus quidem ipsam. Voluptate fuga corporis iusto similique voluptates sint quibusdam.</p>
+
+                        </div>
+                    </div>
+                    <div class="column col-lg-4 col-md-6 col-sm-6 color-2 editContent">
+                        <div class="bg-color-white">
+                            <div class="span-color editContent">
+                            <span class="fa fa-smile-o" aria-hidden="true"></span>
+                        </div>
+                        <h4><a href="http://127.0.0.1:8000/SetAgency/" class=" editContent">信息录入</a></h4>
+                        <p class="para editContent">Assumenda temporibus quidem ipsam. Voluptate fuga corporis iusto similique voluptates sint quibusdam.</p>
+
+                    </div>
+                </div>
+
+                <div class="column col-lg-4 col-md-6 col-sm-6 color-2 editContent">
+                    <div class="bg-color-white">
+                        <div class="span-color editContent">
+                        <span class="fa fa-laptop" aria-hidden="true"></span>
+                        </div>
+                    <h4><a href="http://127.0.0.1:8000/DeleteAgency/" class=" editContent">信息删除</a></h4>
+                    <p class="para editContent">Assumenda temporibus quidem ipsam. Voluptate fuga corporis iusto similique voluptates sint quibusdam.</p>
+
+                </div>
+            </div>
+            <div class="column col-lg-4 col-md-6 col-sm-6 color-2 editContent">
+                <div class="bg-color-white">
+                    <div class="span-color editContent">
+            <span class="fa fa-diamond" aria-hidden="true"></span>
+        </div>
+                <h4><a href="http://127.0.0.1:8000/PolishAgency/" class=" editContent">信息修改</a></h4>
+                <p class="para editContent">Assumenda temporibus quidem ipsam. Voluptate fuga corporis iusto similique voluptates sint quibusdam.</p>
+
+            </div>
+        </div>
+            <div class="column col-lg-4 col-md-6 col-sm-6 color-2 editContent">
+            <div class="bg-color-white">
+                <div class="span-color editContent">
+        <span class="fa fa-magic" aria-hidden="true"></span>
+    </div>
+             <h4><a href="http://127.0.0.1:8000/ToClinet/" class=" editContent"> 信息浏览</a></h4>
+            <p class="para editContent">Assumenda temporibus quidem ipsam. Voluptate fuga corporis iusto similique voluptates sint quibusdam.</p>
+
+        </div>
+    </div>                       <div class="column col-lg-4 col-md-6 col-sm-6 color-2 editContent">
+        <div class="bg-color-white">
+            <div class="span-color editContent">
+    <span class="fa fa-check" aria-hidden="true"></span>
+</div>
+        <h4><a href="http://127.0.0.1:8000/AgencyPrint/" class=" editContent">数据报表</a></h4>
+        <p class="para editContent">Assumenda temporibus quidem ipsam. Voluptate fuga corporis iusto similique voluptates sint quibusdam.</p>
+
+    </div>
+</div>
+                    </div>
+                </div>
+        </div>
+    </div>
+</section>
+        </div>
+    </div>
+<button onclick="topFunction()" id="movetop" title="Go to top">
+	<span class="fa fa-eject"></span>
+</button>
+<script>
+	// When the user scrolls down 20px from the top of the document, show the button
+	window.onscroll = function () {
+		scrollFunction()
+	};
+
+	function scrollFunction() {
+		if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+			document.getElementById("movetop").style.display = "block";
+		} else {
+			document.getElementById("movetop").style.display = "none";
+		}
+	}
+
+	// When the user clicks on the button, scroll to the top of the document
+	function topFunction() {
+		document.body.scrollTop = 0;
+		document.documentElement.scrollTop = 0;
+	}
+</script>
+<!-- /move top -->
+</body>
+</html>
+<script>
+
+function createInput1()
+{
+document.getElementById("test1").innerHTML = "<input type='text'name='p_ano'required='required' style='width: 80px'/>" ;
+
+}
+function createInput2()
+{
+document.getElementById("test2").innerHTML = "<input type='text'name='p_aname'required='required' style='width: 120px'/>" ;
+
+}
+function createInput3()
+{
+document.getElementById("test3").innerHTML = "<input type='text'name='p_asex'required='required' style='width: 80px'/>" ;
+
+}
+function createInput4()
+{
+document.getElementById("test4").innerHTML = "<input type='text'name='p_aphone'required='required'style='width: 120px'/>" ;
+
+}
+function createInput5()
+{
+document.getElementById("test5").innerHTML = "<input type='text'name='p_aremark'required='required'style='width: 80px'/>" ;
+
+}
+
+</script>
+

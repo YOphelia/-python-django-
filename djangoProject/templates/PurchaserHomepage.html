@@ -1,0 +1,158 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>采购药品</title>
+    <link rel="stylesheet" href="{% static 'css/ces.css' %}">
+     <link rel="stylesheet" href="{% static 'css/style-starter.css' %}">
+</head>
+
+<body>
+<div class="bod">
+    	<div  class="header" >
+         <h2 class="xin">采购药品</h2>
+               <div id="nav">
+
+  <ul>
+
+    <li> <div class="head" style=" z-index: 1000;float: right ;margin: 5px 60px 0 0">
+
+			<div class="dropdown">
+			    <button class="dropbtn"><img src="/static/image/index.png" style="height:50px;width:50px;float:left;"></button>
+			    <div class="dropdown-content">
+			        <a href="#">你好：{{ username }}！</a>
+
+			        <a href="http://127.0.0.1:8000/purchaser/">显示所有药品信息</a>
+
+			        <a href="http://127.0.0.1:8000/">注销退出</a>
+			    </div>
+			</div>
+
+   </li>
+
+
+
+
+  </ul>
+
+  </div>
+        </div>
+
+    	<div   class="zhengwen"style="width: 100%">
+            <div class="shousuo" >
+                 <form action="http://127.0.0.1:8000/MedicineSearch1/" method="post" class="search_form" >
+
+                     <input type="text" class="input_text" placeholder="请输入药品编号" name="wb"required="required" style="left:300px;position: relative;"><!-- -->
+                        <input type="submit" value="搜索" class="input_sub"style="left: 300px;position: relative;">
+                 </form>
+            </div>
+           <div class="jieguo">
+            <form action="http://127.0.0.1:8000/Topurchaser/" method="post">
+                    <table class="hovertable" id="blocks">
+                        <h2>{{ hobby }}</h2>
+                    <tr>
+                        <th>药品编号</th><th>药品名称  </th><th>库存</th><th>   购买数量</th>
+                        </tr>
+                        <ul>{% for medicine in medicines %}
+
+                        <tr onmouseover="this.style.backgroundColor='#ffff66';" onmouseout="this.style.backgroundColor='#d4e3e5';">
+                        <td>{{ medicine.mno }}</td><td>{{ medicine.mname }}</td><td>{{ medicine.mcount }}</td> <td><input type="text" name="med" value="0"></td>
+
+                        {% endfor %}
+                        </ul>
+
+                </table>
+            <button class="but" type="submit" style="width: 150px;font-size: 25px;position: relative;top: 50px;left: 20px">购买</button>
+             </form>
+              <div id="pagiDiv" align="right" style="width:1200px" >
+                <span id="spanFirst">首页</span>
+                <span id="spanPre">上一页</span>
+                <span id="spanNext">下一页</span>
+                <span id="spanLast">尾页</span>
+                第 <span id="spanPageNum"></span> 页/共<span id="spanTotalPage"></span> 页
+                    </div>
+
+           </div>
+
+        </div>
+    	<div   class="boot" style="background: orange">
+
+         </div>
+
+
+
+
+    </div>
+<button onclick="topFunction()" id="movetop" title="Go to top">
+	<span class="fa fa-eject"></span>
+</button>
+<script>
+
+	// When the user scrolls down 20px from the top of the document, show the button
+	window.onscroll = function () {
+		scrollFunction()
+	};
+
+	function scrollFunction() {
+		if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+			document.getElementById("movetop").style.display = "block";
+		} else {
+			document.getElementById("movetop").style.display = "none";
+		}
+	}
+
+	// When the user clicks on the button, scroll to the top of the document
+	function topFunction() {
+		document.body.scrollTop = 0;
+		document.documentElement.scrollTop = 0;
+	}
+</script>
+<!-- /move top -->
+</body>
+</html>
+
+  <script type="text/javascript" src="../static/js/pagination.js"></script>
+
+    <script type="text/javascript">
+        //全局变量
+        var numCount;       //数据总数量
+        var columnsCounts;  //数据列数量
+        var pageCount;      //每页显示的数量
+        var pageNum;        //总页数
+        var currPageNum ;   //当前页数
+
+        //页面标签变量
+        var blockTable;
+        var preSpan;
+        var firstSpan;
+        var nextSpan;
+        var lastSpan;
+        var pageNumSpan;
+        var currPageSpan;
+
+
+
+        window.onload=function(){
+            //页面标签变量
+            blockTable = document.getElementById("blocks");
+            preSpan = document.getElementById("spanPre");
+            firstSpan = document.getElementById("spanFirst");
+            nextSpan = document.getElementById("spanNext");
+            lastSpan = document.getElementById("spanLast");
+            pageNumSpan = document.getElementById("spanTotalPage");
+            currPageSpan = document.getElementById("spanPageNum");
+
+            numCount = document.getElementById("blocks").rows.length - 1;       //取table的行数作为数据总数量（减去标题行1）
+            {#alert(numCount)#}
+            columnsCounts = blockTable.rows[0].cells.length;
+            pageCount = 8;
+            pageNum = parseInt(numCount/pageCount);
+            if(0 != numCount%pageCount){
+                pageNum += 1;
+            }
+
+            firstPage();
+        };
+    </script>

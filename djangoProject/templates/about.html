@@ -1,0 +1,111 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>经办人信息查询</title>
+    <link rel="stylesheet" href="{% static 'css/ces.css' %}">
+</head>
+
+<body>
+<div class="bod">
+    	<div  class="header" >
+         <h2 class="xin">信息查询</h2>
+        </div>
+    	<div  class="cebian">
+            <from class="bbt" >
+                <input type="button" value="顾客信息查询" name="wa" class="button1">
+                <a href="http://127.0.0.1:8000/ToAgencys/">
+                     <input type="button" value="经办人信息查询" class="button1">
+                </a>
+
+               <a href="http://127.0.0.1:8000/ToMedicine/">
+                     <input type="button" value="药品信息查询"  class="button2">
+                </a>
+
+            </from>
+
+
+        </div>
+    	<div   class="zhengwen">
+            <div class="shousuo">
+                 <form action="/getstudents/" method="post" class="search_form">
+
+                     <input type="text" class="input_text" placeholder="请输入经办人编号" name="wd"required="required"><!-- -->
+                        <input type="submit" value="搜索" class="input_sub">
+                 </form>
+            </div>
+           <div class="jieguo">
+
+                    <table class="hovertable">
+                        <h2>{{ hobby }}</h2>
+                    <tr>
+                        <th>顾客编号</th><th>顾客姓名  </th><th>性别  </th><th>手机号</th>
+                        </tr>
+                        <ul>{% for agency in agencys %}
+
+                        <tr onmouseover="this.style.backgroundColor='#ffff66';" onmouseout="this.style.backgroundColor='#d4e3e5';">
+                        <td>{{ agency.ano }}</td><td>{{ agency.aname }}</td><td>{{agency.asex}}</td><td>{{agency.aphone}}</td>
+                    </tr>
+                        {% endfor %}
+                        </ul>
+
+                </table>
+                <div id="pagiDiv" align="right" style="width:1200px" >
+                <span id="spanFirst">首页</span>
+                <span id="spanPre">上一页</span>
+                <span id="spanNext">下一页</span>
+                <span id="spanLast">尾页</span>
+                第 <span id="spanPageNum"></span> 页/共<span id="spanTotalPage"></span> 页
+                    </div>
+
+           </div>
+
+        </div>
+    	<div   class="boot">我是尾部</div>
+    </div>
+</body>
+</html>
+<script type="text/javascript" src="../static/js/pagination.js"></script>
+
+    <script type="text/javascript">
+        //全局变量
+        var numCount;       //数据总数量
+        var columnsCounts;  //数据列数量
+        var pageCount;      //每页显示的数量
+        var pageNum;        //总页数
+        var currPageNum ;   //当前页数
+
+        //页面标签变量
+        var blockTable;
+        var preSpan;
+        var firstSpan;
+        var nextSpan;
+        var lastSpan;
+        var pageNumSpan;
+        var currPageSpan;
+
+
+
+        window.onload=function(){
+            //页面标签变量
+            blockTable = document.getElementById("blocks");
+            preSpan = document.getElementById("spanPre");
+            firstSpan = document.getElementById("spanFirst");
+            nextSpan = document.getElementById("spanNext");
+            lastSpan = document.getElementById("spanLast");
+            pageNumSpan = document.getElementById("spanTotalPage");
+            currPageSpan = document.getElementById("spanPageNum");
+
+            numCount = document.getElementById("blocks").rows.length - 1;       //取table的行数作为数据总数量（减去标题行1）
+            {#alert(numCount)#}
+            columnsCounts = blockTable.rows[0].cells.length;
+            pageCount = 11;
+            pageNum = parseInt(numCount/pageCount);
+            if(0 != numCount%pageCount){
+                pageNum += 1;
+            }
+
+            firstPage();
+        };
+    </script>

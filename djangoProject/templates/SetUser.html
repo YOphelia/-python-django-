@@ -1,0 +1,203 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>查看用户信息</title>
+    <link rel="stylesheet" href="{% static 'css/ces.css' %}">
+     <link rel="stylesheet" href="{% static 'css/style-starter.css' %}">
+    <style>
+        div.changeDiv input {
+    font-size: 1em;
+    font-family: 仿宋, serif;
+    width: 60%;
+    display: block;
+    margin-left: 10%;
+    opacity: 0.8;
+    padding: 0.2em;
+    color: #000000;
+    border-radius: 10px;
+    background-color: #bed8df;
+}
+    </style>
+</head>
+
+<body>
+<div class="bod">
+    	<div  class="header" >
+         <h2 class="xin">查看用户信息</h2>
+              <div id="nav">
+
+  <ul>
+
+    <li> <div class="head" style=" z-index: 1000;float: right ;margin: 5px 60px 0 0">
+
+			<div class="dropdown  " style=" z-index: 1000;">
+			    <button class="dropbtn"><img src="/static/image/4.jpg" style="z-index:100;height:50px;width:50px;float:left;"></button>
+			    <div class="dropdown-content">
+			        <a href="#">你好：{{ username }}！</a>
+
+			        <a href="http://127.0.0.1:8000/DeleteUser/">查看所有用户</a>
+			        <a href="http://127.0.0.1:8000/">注销退出</a>
+			    </div>
+			</div>
+
+   </li>
+
+   
+
+    <li class="li1"><a href="http://127.0.0.1:8000/Homepage/" title="">主页</a></li>
+
+
+  </ul>
+
+  </div>
+
+
+
+        </div>
+    	<div  class="cebian">
+            <from class="bbt" >
+               <a href="http://127.0.0.1:8000/DeleteUser/">
+                    <input type="button" value="查看用户信息"  class="button1">
+                </a>
+
+                 <a href="http://127.0.0.1:8000/PolishUser/">
+                     <input type="button" value="修改用户信息" class="button1">
+                </a>
+                <a href="http://127.0.0.1:8000/SetUser/">
+                     <input type="button" value="增加用户信息"  class="button2">
+                </a>
+            </from>
+
+
+        </div>
+<div   class="zhengwen">
+
+
+
+
+ <table class="hovertable" id="blocks" style="position: relative;top: 30px;text-align: center">
+
+                     <tr>
+                        <th>用户名称</th><th>手机号  </th><th>密码  <th>身份</th>
+                        </tr>
+                       <ul>
+
+                        <tr onmouseover="this.style.backgroundColor='#ffff66';" onmouseout="this.style.backgroundColor='#d4e3e5';">
+                        <form action="/Setuser/" method="post">
+                        <td><input type="text" name="username" required="required"></td><td><input type="text"name="phone" required="required"></td><td><input type="text"name="password" required="required"></td><td><select id="sex" name="id" >
+                <option>agency</option>
+                <option>purchaser</option>
+            </select></td>
+                        <button class="but" type="submit" style="width: 150px;font-size: 25px;position: relative;top: 170px;left: 490px">添加</button>
+                        </form>
+                    </tr>
+
+                        </ul>
+
+              
+                </table>
+
+
+            <h2 style="position: relative;left: 455px;top: 135px">{{ hobby }}</h2>
+
+
+
+        </div>
+    	<div   class="boot" style="background:orange;">
+
+
+        </div>
+    </div>
+<button onclick="topFunction()" id="movetop" title="Go to top">
+	<span class="fa fa-eject"></span>
+</button>
+<script>
+	// When the user scrolls down 20px from the top of the document, show the button
+	window.onscroll = function () {
+		scrollFunction()
+	};
+
+	function scrollFunction() {
+		if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+			document.getElementById("movetop").style.display = "block";
+		} else {
+			document.getElementById("movetop").style.display = "none";
+		}
+	}
+
+	// When the user clicks on the button, scroll to the top of the document
+	function topFunction() {
+		document.body.scrollTop = 0;
+		document.documentElement.scrollTop = 0;
+	}
+</script>
+<!-- /move top -->
+</body>
+</html>
+<script>
+
+function createInput1()
+{
+document.getElementById("test1").innerHTML = "<input type='text'name='p_cno'required='required' style='width: 30px'/>" ;
+
+}
+function createInput2()
+{
+document.getElementById("test2").innerHTML = "<input type='text'name='p_cname'required='required' style='width: 50px'/>" ;
+
+}
+function createInput3()
+{
+document.getElementById("test3").innerHTML = "<input type='text'name='p_csex'required='required' style='width: 30px'/>" ;
+
+}
+function createInput4()
+{
+document.getElementById("test4").innerHTML = "<input type='text'name='p_cage'required='required'style='width: 80px'/>" ;
+
+}
+function createInput5()
+{
+document.getElementById("test5").innerHTML = "<input type='text'name='p_caddress'required='required' style='width: 80px'/>" ;
+
+}
+function createInput6()
+{
+document.getElementById("test6").innerHTML = "<input type='text'name='p_cphone'required='required' style='width: 30px'/>" ;
+
+}
+function createInput7()
+{
+document.getElementById("test7").innerHTML = "<input type='text'name='p_csymptom'required='required' style='width: 80px'/>" ;
+
+}
+function createInput8()
+{
+document.getElementById("test8").innerHTML = "<input type='text'name='p_mno'required='required'style='width: 30px'/>" ;
+
+}
+function createInput9()
+{
+document.getElementById("test9").innerHTML = "<input type='text'name='p_ano'required='required' style='width: 30px'/>" ;
+
+}
+function createInput10()
+{
+document.getElementById("test10").innerHTML = "<input type='text'name='p_cdate'required='required' style='width: 100px'/>" ;
+
+}
+function createInput11()
+{
+document.getElementById("test11").innerHTML = "<input type='text'name='p_cremark'required='required' style='width:30px'/>" ;
+
+}
+function createInput12()
+{
+document.getElementById("test12").innerHTML = "<input type='text'name='p_cmcount'required='required' style='width:30px'/>" ;
+
+}
+</script>
+
